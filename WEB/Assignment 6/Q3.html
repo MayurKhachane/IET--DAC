@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+  <title>Counter</title>
+</head>
+<body>
+  <button style="background-color: aqua;" id="btn">Count</button>
+  <p>Clicked <span id="count">0</span> times</p>
+  
+  <script>
+    let count = 0;
+    const button = document.getElementById('btn');
+    const countTimes = document.getElementById('count');
+
+    button.onclick = () => {
+      count++;
+      countTimes.textContent = count;
+
+      if(count >= 10){
+        button.disabled = true;
+      }
+    };
+  </script>
+</body>
+</html>

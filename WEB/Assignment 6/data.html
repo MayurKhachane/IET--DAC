@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Data Manage</title>
+    <style>
+        #fc{
+            text-align: center;
+            background-color: rgb(193, 240, 106);
+            padding-top: 2%;
+            padding-bottom: 2%;
+        }
+        #Table{
+          
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        th,td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: #fff;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="fc">
+        <p style="color: #000000; font-size: larger;" >User Registration Form</p>
+        <label for="text">Name:
+
+        </label>
+        <input type="text" id="Name" placeholder="Enter Name..">
+        <br><br>
+         <label for="Email">Email:</label>
+        <input type="email" id="email" placeholder="Enter Email..">
+        
+        <br><br>
+        <label for="text">Phone Number:</label>
+        <input type="number" id="Num" placeholder="Enter Number..">
+        <br><br>
+        <label for="date">DOB:</label>
+        <input type="date" id="dob" placeholder="Enter Birth of Date..">
+        <br><br>
+        <button onclick="addData()" style="background-color: rgb(8, 194, 48);padding: 8px; color: #fff;">ADD</button>
+        
+    </div>
+    <table id="Table">
+        <tr>
+            <th> Name </th>
+            <th> Email </th>
+            <th> Phone No. </th>
+            <th> Date of Birth </th>
+            <th>Action</th>
+        </tr>
+    </table>
+    <script>
+        function addData()
+        {
+        let name = document.getElementById("Name").value;
+        let email = document.getElementById("email").value;
+        let phno = document.getElementById("Num").value;
+        let DOB = document.getElementById("dob").value;
+       
+        let table = document.getElementById("Table");
+        let newRow = table.insertRow(table.rows.length);
+
+         newRow.insertCell(0).innerHTML = name;
+         newRow.insertCell(1).innerHTML = email;
+         newRow.insertCell(2).innerHTML = phno;
+         newRow.insertCell(3).innerHTML = DOB ;
+         newRow.insertCell(4).innerHTML =
+         '<button onclick="deleteData(this)">Delete</button>'+ "   " +  "  " +  '<button onclick="Edit(this)">Edit</button>';
+        
+        }
+        function deleteData(button)
+        {
+            let row = button.parentNode.parentNode;
+            row.parentNode.removeChild(row);
+        }
+
+        function Edit(button){
+            let row = button.parentNode.parentNode;
+            let nameCell = row.cells[0];
+            let emailCell = row.cells[1];
+            let phnoCell = row.cells[2];
+            let DOBCell = row.cells[3];
+
+            let inputName = prompt("Enter Edit Name:", nameCell.innerHTML);
+            let inputEmail = prompt("Update email", emailCell.innerHTML);
+            let inputPhno = prompt("Enter Updated number", phnoCell.innerHTML);
+
+            let inputDOB = prompt("Enter updated DOB", DOBCell.innerHTML);
+
+            nameCell.innerHTML = inputName;
+            nameCell.innerHTML = inputEmail;
+            nameCell.innerHTML = inputPhno;
+            nameCell.innerHTML = inputDOB;
+
+        }
+    </script>
+</body>
+</html>

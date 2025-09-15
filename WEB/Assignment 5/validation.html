@@ -1,0 +1,75 @@
+<!-- 2) Perform the form validations as shown in Lecture
+  for name and age 
+   and display error message if it not valid
+    -->
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Validation</title>
+  <style>
+
+    .error-message {
+      color: red;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Validation Example</h2>
+
+  <form id="myForm">
+    <div>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name">
+      <div id="name-error" class="error-message"></div>
+    </div>
+<br>
+<br>
+    <div>
+      <label for="age">Age:</label>
+      <input type="number" id="age" name="age">
+      <div id="age-error" class="error-message"></div>
+    </div>
+<br>
+    <div>
+      <button type="submit">Submit</button>
+    </div>
+  </form>
+
+  <script>
+    document.getElementById("myForm").addEventListener("submit", function(event)
+    {
+      event.preventDefault(); 
+
+
+      document.getElementById("name-error").textContent = "";
+      document.getElementById("age-error").textContent = "";
+
+   
+      const name = document.getElementById("name").value;
+      const age = document.getElementById("age").value;
+
+      let isValid = true;
+
+      if (name.trim() === "") 
+      {
+        document.getElementById("name-error").textContent = "Field is empty";
+        isValid = false;
+      }
+
+     
+      if (age==="" || age<=10) 
+      {
+        document.getElementById("age-error").textContent = "Age is required and must be greater than 10";
+        isValid = false;
+      }
+
+   
+   
+    });
+  </script>
+
+</body>
+</html>
