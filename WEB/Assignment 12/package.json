@@ -1,0 +1,15 @@
+{
+  "name": "assignment-12",
+  "version": "1.0.0",
+  "description": "i want to run my project ",
+  "main": "AcalcuMain.js",
+  "scripts": {
+    "start": "node AcalcuMain.js",
+    "test": "node AcalcuMain.js"
+  },
+  "author": "Mayur",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
