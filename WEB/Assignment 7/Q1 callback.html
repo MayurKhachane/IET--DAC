@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <button onclick="start()">Start Interval</button>
+    <button onclick="stop()">Stop Interval</button>
+    <button onclick="oneTime()">One-Time Timeout</button>
+    <div id="log"></div>
+
+
+    <script>
+      let intervalId;
+      function start() 
+      {
+        intervalId = setInterval(() => {
+          document.getElementById('log').innerHTML += 'Interval!<br>';
+        }, 1000);
+      }
+      function stop() 
+      {
+        clearInterval(intervalId);
+        document.getElementById('log').innerHTML += 'Interval stopped.<br>';
+      }
+      function oneTime() 
+      {
+        setTimeout(() => {
+          document.getElementById('log').innerHTML += 'Timeout fired!<br>';
+        }, 2000);
+      }
+    </script>
+  </body>
+</html>

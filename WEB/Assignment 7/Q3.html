@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Data Input</title>
+</head>
+<body>
+
+  <h2>User Information Form</h2>
+  <label for="firstName">First Name:</label>
+  <input type="text" id="firstName" /><br/><br/>
+  
+  <label for="lastName">Last Name:</label>
+  <input type="text" id="lastName" /><br/><br/>
+  
+  <label for="age">Age:</label>
+  <input type="number" id="age" /><br/><br/>
+  
+  <button onclick="processData()">Submit</button>
+  <br>
+  <br>
+
+  <table border="45" id="userTable">
+    <head>
+        <th>First Name</th><th>Last Name</th><th>Age</th>
+    </head>
+    <body>
+    </body>
+  </table>
+
+  <script>
+    function processData(){
+       firstName = document.getElementById("firstName").value;
+       lastName = document.getElementById("lastName").value;
+       age = document.getElementById("age").value;
+
+      const userObj = {
+        firstName: firstName,
+        lastName: lastName,
+        age: age
+      };
+
+      const jsonData = JSON.stringify(userObj);
+      const userData = JSON.parse(jsonData);
+
+
+      const tableBody = document.getElementById('userTable').getElementsByTagName('tbody')[0];
+      const newRow = tableBody.insertRow();
+
+      newRow.insertCell(0).textContent = userData.firstName;
+      newRow.insertCell(1).textContent = userData.lastName;
+      newRow.insertCell(2).textContent = userData.age;
+      
+    }
+  </script>
+</body>
+</html>
+

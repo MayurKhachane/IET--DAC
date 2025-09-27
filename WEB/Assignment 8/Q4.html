@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    #box {
+        width:600px;
+        height:50px;
+        overflow:hidden;
+        position:relative;
+        margin:20px auto;
+        border:1px solid #000;
+    }
+    #quote {
+        position:absolute;
+        white-space:nowrap;
+        font:18px Georgia,serif;
+        color:purple;}
+  </style>
+</head>
+<body>
+  <div id="box">
+    <div id="quote">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam voluptas provident dolores ratione aspernatur, enim cum fugiat dolorem amet expedita, vero voluptate nulla, fuga veritatis harum et error doloremque consectetur?</div>
+  </div>
+  <button id="btn">Start</button>
+
+  <script>
+    $("#btn").click(function(){
+      let $q=$("#quote"),
+          box=$("#box").width(),
+          w=$q.width(),
+          count=0;
+
+      function scroll(dir){
+        let start = dir==="ltr"? -w : box,
+            end   = dir==="ltr"? box : -w;
+
+        $q.css({left:start}).animate({left:end},10000,"linear",function(){
+          if(dir==="ltr" && count<3){ count++; scroll("ltr"); 
+
+          }
+          else if(dir==="ltr"){ scroll("rtl"); 
+            
+          }
+        });
+      }
+      scroll("ltr");
+    });
+  </script>
+</body>
+</html>

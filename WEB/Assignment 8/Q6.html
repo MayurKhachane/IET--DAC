@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fade</title>
+    <script src = "jquery-3.7.1.min.js"></script>
+    <!-- OR <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+    <style>
+        #d1{
+            border:2px;
+            border-style: solid;
+            background-color: rgb(238, 145, 5);
+            height: 100px;
+            width: 100px;
+            position: absolute;
+            border-radius: 8px;
+            text-align: center;
+            
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+}
+    </style>
+</head>
+<body>
+    <div id = "d1"><b>Data  </b></div>
+    <br><br><br><br><br><br>
+    <button id = "btn1" style="background-color: rgb(178, 238, 138);">Fade Out</button>
+    <button id = "btn" style="background-color: rgb(3, 221, 14);">Fade In</button>
+    <button id = "btn2" style="background-color: rgb(142, 212, 72);">Fade Toggle</button>
+    <button id = "btn3" style="background-color: rgb(192, 241, 191);">Fade To</button>
+    <script>
+
+        $(document).ready(function()
+        {
+            $("#btn").click(function(){
+                $("#d1").fadeIn(2000)
+            })
+             $("#btn1").click(function(){
+                $("#d1").fadeOut(2000)
+            })
+             $("#btn2").click(function(){
+                $("#d1").fadeToggle(1000)
+            })
+            $("#btn3").click(function(){
+                $("#d1").fadeTo(1000,0.2)
+            })
+
+
+
+        })
+        
+    </script>
+    
+</body>
+</html>

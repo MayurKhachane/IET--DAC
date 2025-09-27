@@ -1,0 +1,29 @@
+<html>
+<body>
+
+  <div id="box1" style="background:red;width:50px;height:50px;position:absolute;top:0;left:0;"></div>
+  <div id="box2" style="background:blue;width:50px;height:50px;position:absolute;top:0;right:0;"></div>
+
+<script>
+function moveBox(id, dir){
+  let pos = 0;
+  const elem = document.getElementById(id);
+  let timer = setInterval(frame, 5);
+  function frame(){
+    if(pos == 200){
+      clearInterval(timer);
+    } else {
+      pos++;
+      elem.style.top = pos + "px";
+      if(dir === "left") elem.style.left = pos + "px";
+      else if(dir === "right") elem.style.right = pos + "px";
+    }
+  }
+}
+
+moveBox("box1","left");   
+moveBox("box2","right");  
+</script>
+
+</body>
+</html>

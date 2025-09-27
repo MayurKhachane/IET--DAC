@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Multiplication Table</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    table,td 
+    { border: 1px solid black;  padding: 5px; }
+  </style>
+</head>
+<body>
+
+Number: <input type="number" id="num" /><br/>
+From: <input type="number" id="from" /><br/>
+To: <input type="number" id="to" /><br/>
+<button id="show" style="background-color: chartreuse;">Show</button>
+
+<div id="result"></div>
+
+<script>
+   
+  //  without table ->
+  //  $(document).ready(function(){
+  //       $("#btn").click(function(){
+  //           let num = $("#getnum").val();
+  //           let st = $("#start").val();
+  //           let end = $("#end").val();
+  //           for(let i = st;i<=end;i++){
+  //           $("#p1").append(num + " * " +i+" = "+num*i+"<br>");
+  //           }
+            
+  //           })
+
+  //   });
+
+
+  $('#show').click(function() {
+    let num = +$('#num').val();
+    let from = +$('#from').val();
+    let to = +$('#to').val();
+    
+    let tabl = '<table><tbody>';
+    for(let i = from; i <= to; i++) 
+    {
+      tabl += `<tr><td>${num} * ${i}</td><td>${num * i}</td></tr>`;
+    }
+    tabl += '</tbody></table>';
+    $('#result').html(tabl);
+  });
+
+
+</script>
+
+</body>
+</html>
