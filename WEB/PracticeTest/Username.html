@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Username</title>
+</head>
+<body>
+    <h1>Generate Username</h1>
+    <input id="firstName" placeholder="First Name">
+
+    <input id="lastName" placeholder="Last Name">
+
+    <input id="age" placeholder="Age">
+
+    <button onclick="generate()">Generate</button>
+
+    <p id="error" style="color:red;"></p>
+
+    <p id="output"></p>
+
+    <script>
+        function generate() {
+            const fn = document.getElementById('firstName').value;
+
+            const ln = document.getElementById('lastName').value;
+
+            const age = document.getElementById('age').value;
+
+            const err = document.getElementById('error');
+            const out = document.getElementById('output');
+
+            err.innerText = out.innerText = '';
+
+            if (!fn || !ln || !age)
+             return err.innerText = 'Fill all fields';
+
+            if (isNaN(age) || age < 0)
+             return err.innerText = 'Invalid age';
+
+            out.innerText = `Username = ${fn.slice(0,2).toLowerCase()}${ln.slice(-2).toLowerCase()}${age}`;
+        }
+    </script>
+</body>
+</html>

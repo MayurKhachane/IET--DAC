@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculate Table</title>
+</head>
+<body>
+    <h1>Multiplication Table</h1>
+
+    <input type="text" id="noInput" placeholder="Enter a number">
+
+    <button onclick="generateTable()">Generate Table</button>
+
+    <p id="error" style="color:red;"></p>
+
+    <div id="tableOutput"></div>
+
+    <script>
+        function generateTable() {
+
+            const input = document.getElementById('noInput').value;
+
+            const error = document.getElementById('error');
+
+            const output = document.getElementById('tableOutput');
+
+            error.innerText = '';
+            output.innerHTML = '';
+
+            if (!input) {
+                error.innerText = 'Please enter a number';
+                return;
+            }
+            if (isNaN(input)) {
+                error.innerText = 'Please enter a valid number';
+                return;
+            }
+
+
+            const num = Number(input);
+            let table = '<table border=1>';
+
+            for (let i = 1; i <= 10; i++) {
+                table += `<tr><td>${num} x ${i}</td><td>=</td><td>${num * i}</td></tr>`;
+            }
+            table += '</table>';
+            
+            output.innerHTML = table;
+        }
+    </script>
+</body>
+</html>
